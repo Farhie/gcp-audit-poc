@@ -3,6 +3,6 @@ terraform {
 }
 
 provider "google" {
-  project     = "audit"
-  region      = "us-central1"
+  project = "audit-poc"
+  region  = "us-central1"
 }
