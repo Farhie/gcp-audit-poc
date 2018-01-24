@@ -1,5 +1,5 @@
 resource "google_spanner_instance" "audit_poc_spanner_instance" {
-  config       = "us-central1"
+  config       = "regional-us-central1"
   display_name = "audit-poc-instance"
   name         = "audit-poc-instance"
   num_nodes    = 1
