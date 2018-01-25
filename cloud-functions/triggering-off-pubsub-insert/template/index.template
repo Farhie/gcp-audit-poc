@@ -1,6 +1,6 @@
 const Spanner = require("@google-cloud/spanner");
 
-const projectId = "audit-poc";
+const projectId = "${gcp_project}";
 const instanceId = "audit-poc-instance";
 const databaseId = "audit-poc-state-machine-table";
 
