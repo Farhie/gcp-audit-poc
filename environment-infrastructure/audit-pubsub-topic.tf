@@ -6,7 +6,7 @@ resource "google_pubsub_topic" "audit_poc_topic" {
 resource "google_storage_bucket_object" "message_ingress_to_pubsub_archive" {
   name   = "message-ingress-pubsub.zip"
   bucket = "${google_storage_bucket.cloud_functions_bucket.name}"
-  source = "../lib/message-ingress-pubsub.zip"
+  source = "../cloud-functions/triggering-off-pubsub-insert/message-ingress-pubsub.zip"
 }
 
 resource "google_cloudfunctions_function" "update_on_insert_to_pubsub_function" {
