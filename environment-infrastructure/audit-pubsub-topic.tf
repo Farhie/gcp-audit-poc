@@ -1,5 +1,6 @@
 resource "google_pubsub_topic" "audit_poc_topic" {
-  name = "audit-poc-topic"
+  name    = "audit-poc-topic"
+  project = "${var.project}"
 }
 
 resource "google_storage_bucket_object" "message_ingress_to_pubsub_archive" {
@@ -17,4 +18,5 @@ resource "google_cloudfunctions_function" "update_on_insert_to_pubsub_function" 
   trigger_topic         = "${google_pubsub_topic.audit_poc_topic.name}"
   timeout               = 60
   entry_point           = "writeToSpanner"
+  project               = "${var.project}"
 }
