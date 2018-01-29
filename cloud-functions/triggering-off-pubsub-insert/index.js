@@ -9,12 +9,12 @@ exports.writeToSpanner = (event, callback) => {
     const pseudoRandomId = Math.floor(Math.random() * 123456).toString();
     const pubSubMessage = event.data;
     const body = Buffer.from(pubSubMessage.data, "base64").toString();
-    const spanner = new Spanner({ projectId: projectId,});
+    const spanner = new Spanner({ projectId: projectId});
     const instance = spanner.instance(instanceId);
     const database = instance.database(databaseId);
     const eventsTable = database.table("Events");
 
-    console.log("Inserting event body: " + body)
+    console.log("Inserting event body: " + body);
 
     eventsTable
       .insert([
